@@ -29,6 +29,7 @@
 
         label {
             font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
         input[type="text"],
@@ -50,17 +51,38 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
         button[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: green;
+        }
+
+        button[type="reset"] {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 15px;
+        }
+
+        button[type="reset"]:hover {
+            background-color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Bienvenido al sistema de recibos del Colegio Patria</h1>
-    <form action="/recibo" method="post">
+  <%- include('partials/header.ejs') %> <%- include('partials/nav.ejs') %>
+    <h1>Recibo de pago</h1>
+    <form action="/pago" method="post">
         <label for="numero">Número de Docente:</label>
         <input type="number" id="numero" name="numero" required>
 
@@ -95,6 +117,8 @@
         </select>
 
         <button type="submit">Calcular Recibo</button>
+        <br>
+        <button type="reset"><a href="/recibo" class="text-decoration-none text-white">Limpiar</a></button>
     </form>
 </body>
 </html>
